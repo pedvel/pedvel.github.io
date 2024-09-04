@@ -179,7 +179,7 @@ section {
     font-size: 3.5em; 
     text-align: center;
     font-style: #03346E;
-    font-weight: 100;
+    font-weight: 600;
     opacity: 0;
     transition: opacity 2s ease-out;
     position:relative;
@@ -207,7 +207,7 @@ section {
     box-sizing: border-box;
     width: 40%;
     min-width: 400px;
-    background-color: #ecedd4;
+    background-color: whitesmoke;
 }
 
 .project:hover {
@@ -349,7 +349,8 @@ section {
     align-items: center;
     gap: 10px;
     margin-top: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(219, 217, 217);
+    background-color: whitesmoke;
     padding: 10px; 
     border-radius: 10px;
 }
