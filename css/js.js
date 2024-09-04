@@ -90,28 +90,4 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'none';
         }
     }
-
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
-    
-        const serviceID = 'service_g154b4n';
-        const templateID = 'template_5uptkbh';
-    
-        const templateParams = {
-            from_name: document.getElementById('name').value,
-            from_email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
-    
-        emailjs.send(serviceID, templateID, templateParams)
-            .then(response => {
-                document.getElementById('response-message').textContent = "Message sent successfully!";
-            })
-            .catch(error => {
-                document.getElementById('response-message').textContent = "There was an error sending the message.";
-            });
-    
-        // Reset the form
-        document.getElementById('contact-form').reset();
-    });
 });
