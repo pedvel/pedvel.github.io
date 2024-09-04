@@ -71,7 +71,9 @@ section {
     top: 10px;
     right: 10px;
     z-index: 3;
-    animation: fadeIn 2s ease-out
+    animation: fadeIn 2s ease-out;
+    background-color: #3C79A9 !important;
+    border: none !important;
 }
 
 .intro {
@@ -385,26 +387,16 @@ section {
 
 .about-contact button {
     height: 40px;
+    background-color: #3C79A9 !important;
+    border: none !important;
 }
 
 /*MODAL*/
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-     
-     
     background-color: rgba(0, 0, 0, 0.5); 
-
-    width: 300px;  /* Ancho fijo */
-    padding: 20px;  /* Espacio interno */
-    
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Sombra */
-    top: 50%;  /* Centrar verticalmente */
-    left: 50%;  /* Centrar horizontalmente */
     text-align: center;
     font-family: 'Raleway';
-    
+    text-align: -webkit-center;
 }
 
 .modal-content {
@@ -414,12 +406,18 @@ section {
     border-radius: 10px;
     z-index: 2;
     top: 30%;
-    width: 150px;
+    width: 200px !important;
+    height: 100px;
+}
+
+.modal-content p {
+    margin-bottom: 0;
+    padding-top: 15px;
 }
 
 .close {
     position:absolute;
-    top: 10px;
+    top: 0px;
     right: 10px;
     color: #aaa;
     font-size: 28px;

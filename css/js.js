@@ -68,26 +68,56 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(title);
         }
     });
+});
 
-    // Modal functionality for the contact form
-    var sendButton = document.getElementById('sendButton');
-    var modal = document.getElementById('successMessage');
-    var closeButton = document.querySelector('.modal .close');
+// Modal show/hide functions
+function showModal() {
+    const modal = document.getElementById('successMessage');
+    modal.style.display = 'block';
+}
 
-    // Show the modal when the send button is clicked
-    sendButton.onclick = function () {
-        modal.style.display = 'block';
-    }
+function hideModal() {
+    const modal = document.getElementById('successMessage');
+    modal.style.display = 'none';
+}
 
-    // Hide the modal when the close button is clicked
-    closeButton.onclick = function () {
-        modal.style.display = 'none';
-    }
+// Close modal when user clicks on <span> (x)
+const closeButton = document.querySelector('.modal .close');
+if (closeButton) {
+    closeButton.addEventListener('click', hideModal);
+}
 
-    // Hide the modal if clicking outside the modal content
-    window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
+// Close modal when user clicks anywhere outside the modal
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('successMessage');
+    if (event.target === modal) {
+        hideModal();
     }
 });
+
+// Send form to email
+function sendEmail() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+
+    emailjs.send("service_lxmi7ie", "template_0ainjzf", {
+        from_name: name,
+        from_email: email,
+        message: message
+    })
+        .then(function (response) {
+            console.log("Email sent successfully:", response);
+            showModal(); // Show modal on success
+
+            // Empies form after sending message
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+
+        }, function (error) {
+            console.log("Error sending email:", error);
+            alert("There was an error sending the email. Please try again later.");
+
+        });
+}
