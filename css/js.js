@@ -95,6 +95,12 @@ window.addEventListener('click', (event) => {
     }
 });
 
+// Open CV
+function openCV() {
+    var pdfUrl = './docs/Pedro Velazquez.pdf';
+    window.open(pdfUrl, '_blank');
+}
+
 // Send form to email
 function sendEmail() {
     var name = document.getElementById('name').value;
